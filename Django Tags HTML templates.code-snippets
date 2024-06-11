@@ -1,0 +1,343 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	// DJANGO TAGS - CODE SNIPPETS FOR HTML TEMPLATES ONLY
+	// Also known as aka Django Template Language (DTL)
+	// (used in project_name/app_name/templates/*.html) 
+
+	"Django tags - extends": {
+		"prefix": "djan_tags_extends",
+		"body": [
+			"{% extends 'master.html' %}",
+		],
+		"description": "Django master template extends {% extends 'master.html' %}"
+	},
+
+	"Django tags - for loop ": {
+        "prefix": "djan_tags_for_loop",
+        "body": [
+            "{% for x in models_name %}",
+            "   {{ x.models_variable1 }} {{ x.models_variable2 }}",
+            "{% endfor %}"
+        ],
+        "description": "For loop ( {% for x in models_name %} {{ x.models_variable1 }} {{ x.models_variable2 }} {% endfor %})"
+    },
+
+	"Django tags - block title": {
+		"prefix": "djan_tags_block_title",
+		"body": [
+			"{% block title %}",
+			"    Title",
+			"{% endblock %}",
+		],
+		"description": "Block title {% block title %} Title {% endblock %}"
+	},
+
+	"Django tags - block content": {
+		"prefix": "djan_tags_block_content",
+		"body": [
+			"{% block content %}",
+			"    Content",
+			"{% endblock %}",
+		],
+		"description": "Block content {% block content %} Content {% endblock %}"
+	},
+
+	"Django tags - html template (html, title, body)": {
+		"prefix": "djan_tags_html_template1",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html>",
+			"<title>Title</title>",
+			"<body>",
+			"Body Content",
+			"</body>",
+			"</html>"
+		],
+		"description": "HTML template (html, title, body tags)"
+	},
+
+	"Django tags - a href": {
+		"prefix": "djan_tags_a_href",
+		"body": [
+			"<!-- For example:  <a href=\"/members\">Members</a> -->",
+			"<a href=\"/route/path\">link_name</a>",
+		],
+		"description": "Create link a href (<a href=\"/route/path\">link_name</a>)"
+	},
+
+	"Django tags - variables directly in template": {
+		"prefix": "djan_tags_variables_directly_in_template",
+		"body": [
+			"{% with variable1=\"string\" %}",
+			"    {{ variable1_placeholder }}",
+			"{% endwith %}",
+		],
+		"description": "Create variables directly in template ( {% with variable1=\"str\" %} {{ variable_placeholder }} {% endwith %} )"
+	},
+
+	"Django tags - if endif block": {
+		"prefix": "djan_tags_if_endif_block",
+		"body": [
+			"{% if greeting == 1 %}",
+			"    <h1>Hello</h1>",
+			"{% endif %}"
+		],
+		"description": "if endif block ( {% if greeting == 1 %} <h1>Hello</h1> {% endif %} )"
+	},
+
+	"Django tags - if elif endif block": {
+		"prefix": "djan_tags_if_elif_endif_block",
+		"body": [
+			"{% if greeting == 1 %}",
+			"    <h1>Hello</h1>",
+			"{% elif greeting == 2 %}",
+			"    <h1>Welcome</h1>",
+			"{% endif %}"
+		],
+		"description": "if elif endif block ( {% if greeting == 1 %} <h1>Hello</h1> {% elif greeting == 2 %} <h1>Welcome</h1> {% endif %} )"
+	},
+
+	"Django tags - if else endif block": {
+		"prefix": "djan_tags_if_else_endif_block",
+		"body": [
+			"{% if greeting == 1 %}",
+			"    <h1>Hello</h1>",
+			"{% else %}",
+			"    <h1>Bye</h1>",
+			"{% endif %}"
+		],
+		"description": "if else endif block ( {% if greeting == 1 %} <h1>Hello</h1> {% else %} <h1>Bye</h1> {% endif %} )"
+	},
+
+	"Django tags - if elif else endif block": {
+		"prefix": "djan_tags_if_elif_else_endif_block",
+		"body": [
+			"{% if greeting == 1 %}",
+			"    <h1>Hello</h1>",
+			"{% elif greeting == 2 %}",
+			"    <h1>Welcome</h1>",
+			"{% else %}",
+			"    <h1>Goodbye</h1>",
+			"{% endif %}"
+		],
+		"description": "if elif else endif block ( {% if greeting == 1 %} <h1>Hello</h1> {% elif greeting == 2 %} <h1>Welcome</h1> {% else %} <h1>Goodbye</h1> {% endif %} )"
+	},
+
+	"Django tags - for loop through a list of dictionaries": {
+        "prefix": "djan_tags_for_loop_iterate_list_of_dictionaries",
+        "body": [
+            "{% for x in list_of_dictionaries %}",
+            "   {{ x.key_of_dictionary1 }} {{ x.key_of_dictionary2 }}",
+            "{% endfor %}"
+        ],
+        "description": "For loop through a list of dictionaries ( {% for x in list_of_dictionaries %} {{ x.key_of_dictionary1 }} {{ x.key_of_dictionary2 }} {% endfor %} )"
+    },
+
+	"Django tags - for loop iterate items from database": {
+        "prefix": "djan_tags_for_loop_iterate_items_from_database",
+        "body": [
+            "{% for x in model_variable %}",
+            "   {{ x.models_variable1 }} {{ x.models_variable2 }}",
+            "{% endfor %}"
+        ],
+        "description": "For loop iterate items from database ( {% for x in model_variable %} {{ x.models_variable1 }} {{ x.models_variable2 }} {% endfor %})"
+    },
+
+	"Django tags - for loop iterate items from database (reversed)": {
+        "prefix": "djan_tags_for_loop_iterate_items_from_database_reversed",
+        "body": [
+            "{% for x in model_variable reversed %}",
+            "   {{ x.models_variable1 }} {{ x.models_variable2 }}",
+            "{% endfor %}"
+        ],
+        "description": "For loop iterate items from database reversed ( {% for x in model_variable reversed %} {{ x.models_variable1 }} {{ x.models_variable2 }} {% endfor %})"
+    },
+
+	"Django tags - for loop iterate items from database (empty)": {
+        "prefix": "djan_tags_for_loop_iterate_items_from_database_empty",
+        "body": [
+            "{% for x in emptytestobject %}",
+            "   {{ x.models_variable1 }}",
+			"{% empty %}",
+			"   <li>Empty</li>",
+            "{% endfor %}"
+        ],
+        "description": "For loop iterate items from database empty ( {% for x in emptytestobject %} {{ x.models_variable1 }} {% empty %} <li>Empty</li> {% endfor %})"
+    },
+
+	"Django tags - for loop counter": {
+        "prefix": "djan_tags_for_loop_counter",
+        "body": [
+            "{% for x in models_name %}",
+            "   <li>{{ forloop.counter }}</li>",
+            "{% endfor %}"
+        ],
+        "description": "For loop counter, current iteration, starting at 1 ( {% for x in models_name %} <li>{{ forloop.counter }}</li> {% endfor %})"
+    },
+
+	"Django tags - for loop counter0": {
+        "prefix": "djan_tags_for_loop_counter0",
+        "body": [
+            "{% for x in models_name %}",
+            "   <li>{{ forloop.counter0 }}</li>",
+            "{% endfor %}"
+        ],
+        "description": "For loop counter0, current iteration, starting at 0 ( {% for x in models_name %} <li>{{ forloop.counter0 }}</li> {% endfor %})"
+    },
+	
+	"Django tags - for loop first": {
+			"prefix": "djan_tags_for_loop_first",
+			"body": [
+				"{% comment %} Draw a blue background for the first iteration of the loop {% endcomment %}",
+				"<ul>",
+				"    {% for x in models_name %}",
+				"        <li{% if forloop.first %} style='background-color:lightblue;' {% endif %}>{{ x }}</li>",
+				"    {% endfor %}",
+				"</ul>"
+			],
+			"description": "For loop first, test if the loop is on its first iteration ( {% for x in models_name %} <li{% if forloop.first %} style='background-color:lightblue;' {% endif %}>{{ x }}</li> {% endfor %}"
+		},
+	
+	"Django tags - for loop last": {
+		"prefix": "djan_tags_for_loop_last",
+		"body": [
+			"{% comment %} Draw a blue background for the last iteration of the loop: {% endcomment %}",
+			"<ul>",
+			"    {% for x in models_name %}",
+			"        <li{% if forloop.last %} style='background-color:lightblue;' {% endif %}>{{ x }}</li>",
+			"    {% endfor %}",
+			"</ul>"
+		],
+		"description": "For loop last, test if the loop is on its last iteration ( {% for x in models_name %} <li{% if forloop.last %} style='background-color:lightblue;' {% endif %}>{{ x }}</li> {% endfor %}"
+	},
+
+	"Django tags - for loop revcounter": {
+		"prefix": "djan_tags_for_loop_revcounter",
+		"body": [
+			"{% comment %} The current iteration if you start at the end and count backwards, ending up at 1 {% endcomment %}",
+			"<ul>",
+			"    {% for x in models_name %}",
+			"        <li>{{ forloop.revcounter }}</li>",
+			"    {% endfor %}",
+			"</ul>"
+		],
+		"description": "For loop revcounter, current iteration if you start at the end and count backwards, ending up at 1 ( <ul> {% for x in models_name %} <li{{ forloop.revcounter }}</li> {% endfor %} </ul>"
+	},
+
+	"Django tags - for loop revcounter0": {
+		"prefix": "djan_tags_for_loop_revcounter0",
+		"body": [
+			"{% comment %} The current iteration if you start at the end and count backwards, ending up at 0. {% endcomment %}",
+			"<ul>",
+			"    {% for x in models_name %}",
+			"        <li>{{ forloop.revcounter0 }}</li>",
+			"    {% endfor %}",
+			"</ul>"
+		],
+		"description": "For loop revcounter0, current iteration if you start at the end and count backwards, ending up at 0 ( <ul> {% for x in models_name %} <li{{ forloop.revcounter0 }}</li> {% endfor %} </ul>"
+	},
+
+	"Django tags - comments": {
+		"prefix": "djan_tags_comments",
+		"body": [
+			"{% comment %}",
+			"    <h1>This is a comment</h1>",
+			"{% endcomment %}"
+		],
+		"description": "Comments allow you to have sections of code that will be ignored."
+	},
+
+	"Django tags - comments with description": {
+		"prefix": "djan_tags_comments_with_description",
+		"body": [
+			"{% comment \"this is comment description\" %}",
+			"    <h1>This is a comment</h1>",
+			"{% endcomment %}"
+		],
+		"description": "Comments with description allow you to add specific message to your comment"
+	},
+
+	"Django tags - comments smaller": {
+		"prefix": "djan_tags_comments_smaller",
+		"body": [
+			"    {# ... #}",
+			"    <h1>Welcome {# Everyone #}</h1>",
+		],
+		"description": "Comments smaller"
+	},
+
+	"Django tags - include": {
+		"prefix": "djan_tags_include",
+		"body": [
+			"{# The include tag allows you to include a template inside the current template. This is useful when you have a block of content that is the same for many pages. #}",
+			"{# Make sure the template footer.html exists, or change template name accordingly #}",
+			"{% include 'footer.html' %}",
+		],
+		"description": "Include tag which allows to include a template inside the current template ( {% include 'footer.html' %} )"
+	},
+
+	"Django tags - with": {
+		"prefix": "djan_tags_with",
+		"body": [
+			"{# You can send variables into the template by using the with keyword. In the include file, you refer to the variables by using the {{ variable1 }} syntax #}",
+			"{% include 'template.html' with variable1=\"string1\" %}",
+		],
+		"description": " Send variables into the template by using the with keyword"
+	},
+
+	"Django tags - table": {
+		"prefix": "djan_tags_queryset_table_data",
+		"body": [
+		  "<table border='1'>\n",
+		  "  <tr>\n",
+		  "    <th>ID</th>\n",
+		  "    <th>Firstname</th>\n",
+		  "    <th>Lastname</th>\n",
+		  "  </tr>\n",
+		  "  {% for x in models_name %}\n",
+		  "    <tr>\n",
+		  "      <td>{{ x.id }}</td>\n",
+		  "      <td>{{ x.firstname }}</td>\n",
+		  "      <td>{{ x.lastname }}</td>\n",
+		  "    </tr>\n",
+		  "  {% endfor %}\n",
+		  "</table>\n"
+		],
+		"description": "Creates a table with headers and loops through mymembers data from database."
+	  },
+
+	"Django tags - load static css": {
+		"prefix": "djan_tags_load_static_css",
+		"body": [
+			"{% load static %}",
+		],
+		"description": "Django load static / css {% load static %}"
+	},  
+
+	"Django tags - add link css": {
+		"prefix": "djan_tags_add_link_css",
+		"body": [
+			"<link rel=\"stylesheet\" href=\"{% static 'css_file_name.css' %}\">",
+		],
+		"description": "Django add link css ( <link rel=\"stylesheet\" href=\"{% static 'css_file_name.css' %}\"> )"
+	}, 
+
+}
+
+

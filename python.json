@@ -1,0 +1,386 @@
+{
+	// Place your snippets for python here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+    // DJANGO - USER DEFINED SNIPPETS (REUSABLE CODE TEMPLATES)
+
+    "Django import render": {
+        "prefix": "djan_import_render",
+        "body": [
+            "from django.shortcuts import render",
+        ],
+        "description": "Django import render ( from django.shortcuts import render )"
+    },
+
+    "Django import url_path (in /project_name/app_name/urls.py)": {
+        "prefix": "djan_import_url_path",
+        "body": [
+            "from django.urls import path",
+        ],
+        "description": "Django import url path (in /project_name/app_name/urls.py), ( from django.urls import path )"
+    },
+
+    "Django import url_include path (in /project_name/urls.py)": {
+        "prefix": "djan_import_url_include_path",
+        "body": [
+            "from django.urls import include, path",
+        ],
+        "description": "Django import url include path (in /project_name/urls.py), ( from django.urls import include, path )"
+    },
+
+    "Django import admin": {
+        "prefix": "djan_import_admin",
+        "body": [
+            "from django.contrib import admin",
+        ],
+        "description": "Django import admin ( from django.contrib import admin )"
+    },
+
+    "Django import models (in /project_name/app_name/urls.py)": {
+        "prefix": "djan_import_models",
+        "body": [
+            "from django.db import models",
+        ],
+        "description": "Django import models ( from django.db import models )"
+    },
+
+    "Django import Q expressions (in /project_name/app_name/urls.py)": {
+        "prefix": "djan_import_q_expressions",
+        "body": [
+            "from django.db.models import Q",
+        ],
+        "description": "Django import q expressions ( from django.db.models import Q )"
+    },
+
+    "Django import models name (in /project_name/app_name/views.py)": {
+        "prefix": "djan_import_models_name",
+        "body": [
+            "from .models import models_name       # replace models_name with your name of model, in /project_name/app_name/models.py",
+        ],
+        "description": "Django import models name ( from .models import models_name )"
+    },
+
+    "Django import views (in /project_name/app_name/urls.py)": {
+        "prefix": "djan_import_views_in_urls.py",
+        "body": [
+            "from . import views",
+        ],
+        "description": "Django import views in /project_name/app_name/urls.py ( from . import views )"
+    },
+
+    "Django import template loader": {
+        "prefix": "djan_import_template_loader",
+        "body": [
+            "from django.template import loader",
+        ],
+        "description": "Django import template loader ( from django.template import loader )"
+    },
+
+    "Django import Http Response": {
+        "prefix": "djan_import_http_response",
+        "body": [
+            "from django.http import HttpResponse",
+        ],
+        "description": "Django import HttpResponse ( from django.http import HttpResponse )"
+    },
+
+	"Django - view method(arg:request) returns HTTP response to browser": {
+        "prefix": "djan_view_method_return_http_response_to_browser",
+        "body": [
+            "# Note: The name of the view function does not have to be the same as the application. ",
+            "# I call it 'members' because I think it fits well in this context.",
+            "",
+            "def view_name(request):          # this view_name will be also in routing (in project_name/app_name/urls.py), usually same as template name",
+            "   # Simple example how to send a HTTP response (Hello world! message) back to the browser.",
+            "   return HttpResponse(\"Hello world!\")"
+        ],
+        "description": "Simple example in view to send HTTP response (Hello world! message) to browser"
+    },
+
+    "Django - view method(arg:request) returns template to browser": {
+        "prefix": "djan_view_method_return_template_to_browser",
+        "body": [
+            "def view_name(request):          # this view_name will be also in routing (in project_name/app_name/urls.py), usually same as template name",
+            "   template = loader.get_template('template_name.html')",
+            "   return HttpResponse(template.render())"
+        ],
+        "description": "Simple example in view to send template to browser"
+    },
+
+    "Django - view method(arg:request) for testing returns template": {
+        "prefix": "djan_view_method_for_testing_return_template",
+        "body": [
+            "def testing(request):          # this view_name will be also in routing (in project_name/app_name/urls.py), usually same as template name",
+            "   template = loader.get_template('template.html')     # Leave template.html, as this is for testing, make sure you have created it in templates",
+            "   context = {",
+            "       'fruits': ['Apple', 'Banana', 'Cherry']",
+            "   }",
+            "   return HttpResponse(template.render(context, request))"
+        ],
+        "description": "Simple example of testing view to send template with some data to browser"
+    },
+
+    "Django - view method(arg:request) returns model data in template": {
+        "prefix": "djan_view_method_1argument_return_model_data_in_template",
+        "body": [
+            "def view_name(request):        # this view_name will be also in routing (in project_name/app_name/urls.py), usually same as template name",
+            "   # replace model_variable under with desired name of model for example: club_members",
+            "   model_variable = models_name.objects.all().values()     # replace models_name with your name of model, in /project_name/app_name/models.py or from .models import models_name",
+            "   template = loader.get_template('template_name.html')    # replace template_name.html with name of html template, in /app_name/templates/name.html",   
+            "   context = {",
+            "       'model_variable': model_variable,                    # replace with choosen variable name in first line",
+            "   }",                  
+            "   return HttpResponse(template.render(context, request))"
+        ],
+        "description": "Simple example in view to send model data in template"
+    },
+
+    "Django - view method(arg:request, id) returns model data in template": {
+        "prefix": "djan_view_method_2argument_return_model_data_in_template",
+        "body": [
+            "def view_name(request, id):        # this view_name will be also in routing (in project_name/app_name/urls.py), usually same as template name",      
+            "   # replace model_variable under with desired name of model for example: club_members",
+            "   model_variable = models_name.objects.get(id=id)    # replace models_name with your name of model, in /project_name/app_name/models.py or from .models import models_name",
+            "   template = loader.get_template('template_name.html')    # replace template_name.html with name of html template, in /app_name/templates/name.html",   
+            "   context = {",
+            "       'model_variable': model_variable,                    # replace with choosen variable name in first line",
+            "   }",                  
+            "   return HttpResponse(template.render(context, request))"
+        ],
+        "description": "Simple example in view to send model data in template"
+    },
+
+    "Django - add application name in settings.py in list INSTALLED_APPS[]": {
+        "prefix": "djan_add_apllication_name",
+        "body": [
+            "'application_name'",
+        ],
+        "description": "Django - add application name in settings.py in list INSTALLED_APPS[]"
+    },
+
+    "Django - url path route urlpatterns list(in project_name/app_name/urls.py)": {
+        "prefix": "djan_url_path_route_url_patterns_list",
+        "body": [
+            "# urlpatterns is list with function path() as element, arguments, parameters of path(route:str, view, name:str)",
+            "urlpatterns = [",
+            "   # Example of calling: path('members/', views.members, name='members')",
+            "   path('view_name/', views.view_name, name='view_name')         # Replace view_name accordingly ",
+            "]"    
+        ],
+        "description": "Django - define a path with route in urlpatterns list in file urls.py "
+    },
+
+    "Django - url path route home urlpatterns list(in project_name/app_name/urls.py)": {
+        "prefix": "djan_url_path_route_home_url_patterns_list",
+        "body": [
+            "# urlpatterns is list with function path() as element, arguments, parameters of path(route:str, view, name:str)",
+            "urlpatterns = [",
+            "   # Example: path('', views.view_name, name='view_name')",
+            "   path('', views.home, name='home')         # When home, route '' is valid and view_name is replaced by home as default",
+            "]"    
+        ],
+        "description": "Django - define a path with route home in urlpatterns list in file urls.py "
+    },
+    
+    "Django - url path route include() urlpatterns list(in project_name/urls.py)": {
+        "prefix": "djan_url_path_route_include()_url_patterns_list",
+        "body": [
+            "# urlpatterns is list with function path() as element, arguments, parameters of path(route:str, include())",
+            "# argument, parameter of function include(namespace:str)", 
+            "urlpatterns = [",
+            "   # Example of calling: path('', include('members.urls))",
+            "   path('', include(app_name.urls))         # app_name.urls - means urls.py file in folder /app_name/, include your app urls",
+            "   path('admin/', admin.site.urls)          # Default/pre-created admin urls routes",
+            "]"    
+        ],
+        "description": "Django - define a path with route home in urlpatterns list in file urls.py (Routing info)"
+    },
+
+    "Django - class (models.Model)": {
+        "prefix": "djan_class_models",
+        "body": [
+            "# Creating a class in models means creating a new table in database. Table name will be the name of the class.",
+            "# Class members or variables define table fields. Table is created through Django ORM (Object Relation Mapping)",
+            "",
+            "class Name(models.Model):",
+            "   # Example of variable definition: firstname = models.Charfield(max_length=255)",
+            "   variable1 = models.Type(parameter)",
+            "",
+            "# The first field, firstname, is of type Text field, and will contain the first name, a maximum of 255 characters."
+        ],
+        "description": "Django class (models.Model) ( class Name(models.Model): )"
+    },
+
+    "Django - class variable CharField (variable = models.CharField(parameter))": {
+        "prefix": "djan_class_variable_CharField",
+        "body": [
+            "   # Possible CharField() parameters:",
+            "   # verbose_name:str|name:str|primary_key:bool|max_length:int|db_collation:str|unique:bool|blank:bool|null:Literal|db_index: bool",
+            "   # default:_C|editable:bool|auto_created:bool|serialize:bool|unique_for_date:str|unique_for_month:str|unique_for_year:str|help_text:str",
+            "   # db_column:str|db_tablespace:str|validators:Iterable|choices:Iterable[tuple[_C,str]|tuple[str,Iterable[tuple[_C, tr]]]]|error_messages:[]",
+            "",
+            "   variable_name = models.CharField()",
+        ],
+        "description": "Django variable CharField (variable = models.CharField(parameter))"
+    },
+
+    "Django - class variable IntegerField (variable = models.IntegerField(parameter))": {
+        "prefix": "djan_class_variable_IntegerField",
+        "body": [
+            "# Possible IntegerField() parameters:",
+            "# empty_strings_allowed:str|default_error_messages:dict[str,str]|description:str",
+            "",
+            "variable_name = models.IntegerField()",
+        ],
+        "description": "Django variable IntegerField (variable = models.IntegerField(parameter))"
+    },
+
+    "Django - class variable DateField (variable = models.DateField(parameter))": {
+        "prefix": "djan_class_variable_DateField",
+        "body": [
+            "# Possible DateField() parameters:",
+            "# empty_strings_allowed:str|default_error_messages:dict[str,str]|description:str",
+            "",
+            "variable_name = models.DateField()",
+        ],
+        "description": "Django variable DateField (variable = models.DateField(parameter))"
+    },
+
+    "Django path in urlpatterns (in /project_name/app_name/urls.py)": {
+        "prefix": "djan_path_urlpatterns",
+        "body": [
+            "# path(route:str, view, name:str), for example: path(members/, views.members, name='members')",
+            "path('view_name/', views.view_name, name='view_name')",
+        ],
+        "description": "Django path in urlpatterns (in /project_name/app_name/urls.py), ( path('view_name/', views.view_name, name='view_name') )"
+    },
+
+    "Django testing/test path in urlpatterns (in /project_name/app_name/urls.py)": {
+        "prefix": "djan_testing_path_urlpatterns",
+        "body": [
+            "# General syntax: path(route:str, view, name:str), ",
+            "path('testing/', views.testing, name='testing')",
+        ],
+        "description": "Django path in urlpatterns (in /project_name/app_name/urls.py), ( path('view_name/', views.view_name, name='view_name') )"
+    },
+
+    "Django register model in Admin interface (in /project_name/app_name/admin.py)": {
+        "prefix": "djan_register_model_admin_interface",
+        "body": [
+            "# Register model in admin inteface, model_name should be imported before ( from .models import model_name)",
+            "admin.site.register(model_name)",
+        ],
+        "description": "Django register model in Admin interface (in /project_name/app_name/admin.py), ( admin.site.register(model_name) )"
+    },
+
+    "Django string representation function (in /project_name/app_name/models.py)": {
+        "prefix": "djan_string_representation_function",
+        "body": [
+            "# String representation function, variable1 and variable2 are string type (CharField), they are defined in class in models.py",
+            "def __str__(self):",
+            "   return f\"{self.variable1} {self.variable2}\""
+        ],
+        "description": "Django string repesentation function (in /project_name/app_name/models.py), ( def __str__(self): \"{self.variable1} {self.variable2}\" )"
+    },
+
+    "Django list display property (in /project_name/app_name/admin.py)": {
+        "prefix": "djan_list_display_property",
+        "body": [
+            "# Replace 'ModelName' in class with model name (should be also in  from .models import modelsname ), also add name in admin.site.register()",
+            "class ModelNameAdmin(admin.ModelAdmin):",
+            "   list_display = ('variable1', 'variable2')       # replace variable1, variable2 with variable names (in /project_name/app_name/models.py)",     
+        ],
+        "description": "Django list display property (in /project_name/app_name/admin.py), ( class ModelNameAdmin(admin.Modeladmin)   list_display = ('variable1', 'variable2') )"
+    },
+
+    "Django model data": {
+        "prefix": "djan_model_data",
+        "body": [
+            "# Get model data and assign it to model variable",
+            "model_variable = models_name.objects.all().values()",
+        ],
+        "description": "Django model data ( model_variable = models_name.objects.all().values() )"
+    },
+    
+    "Django model data values list method": {
+        "prefix": "djan_model_data_values_list_method",
+        "body": [
+            "# Get model data and assign it to model variable",
+            "model_variable = models_name.objects.values_list('column_name')",
+        ],
+        "description": "Django model data values list method - return only columns that you specify ( model_variable = models_name.objects.values_list('column_name') )"
+    },
+
+    "Django model data filter method": {
+        "prefix": "djan_model_data_filter_method",
+        "body": [
+            "# Get model data and assign it to model variable",
+            "model_variable = models_name.objects.filter(column_name='value').values()",
+        ],
+        "description": "Django model data values list method - filter to return only sepecific columns ( model_variable = models_name.objects.filter(column_name='value').values() )"
+    },
+
+    "Django model data order by method": {
+        "prefix": "djan_model_data_order_by_method",
+        "body": [
+            "# Get model data and assign it to model variable",
+            "# This order by is equivalent to SQL query: SELECT * FROM table ORDER BY column_name;",
+            "model_variable = models_name.objects.all().order_by('column_name').values()",
+        ],
+        "description": "Django model data order by method - sort results by specific column ( model_variable = models_name.objects.all().order_by('column_name').values() )"
+    },
+
+    "Django model data order by method (desc)": {
+        "prefix": "djan_model_data_order_by_method (desc)",
+        "body": [
+            "# Get model data and assign it to model variable",
+            "# This order by is equivalent to SQL query: SELECT * FROM table ORDER BY column_name DESC;",
+            "model_variable = models_name.objects.all().order_by('-column_name').values()",
+        ],
+        "description": "Django model data order by method - sort results by specific column DESCENDING ( model_variable = models_name.objects.all().order_by('-column_name').values() )"
+    },
+    
+    "Django model data multiple order by method": {
+        "prefix": "djan_model_data_multiple_order_by_method",
+        "body": [
+            "# Get model data and assign it to model variable",
+            "# This order by is equivalent to SQL query: SELECT * FROM table ORDER BY column_name1 ASC, column_name2 DESC;",
+            "model_variable = models_name.objects.all().order_by('column_name1', '-column_name2').values()",
+        ],
+        "description": "Django model data order by method - sort results by specific column, first ascending, second descending ( model_variable = models_name.objects.all().order_by('column_name1', '-column_name2').values() )"
+    },
+
+    "Django model data Q expressions": {
+        "prefix": "djan_model_data_Q_expressions",
+        "body": [
+            "# Get model data and assign it to model variable",
+            "model_variable = models_name.objects.filter(Q(column_name='value') | Q(column_name='value')).values()",
+        ],
+        "description": "Django model data Q expressions example - ( model_variable = models_name.objects.filter(Q(column_name='value') | Q(column_name='value')).values() )"
+    },
+
+    "Django model data field lookups syntax startwith": {
+        "prefix": "djan_model_data_field_lookups_syntax_startswith",
+        "body": [
+            "# Get model data and assign it to model variable",
+            "model_variable = models_name.objects.filter(column_name__startswith='L').values()",
+        ],
+        "description": "Django model data field lookups syntax - column name starts with letter L ( model_variable = models_name.objects.filter(column_name__startswith='L').values() )"
+    },
+
+
+
+
+
+}
