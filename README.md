@@ -2,5 +2,5 @@
 Django Visual Studio Code Snippets
 
 Snippets:
-Django Tags HTML templates.code-snippets
-python.json
+- Django Tags HTML templates.code-snippets</br>
+- python.json
